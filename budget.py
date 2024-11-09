@@ -9,6 +9,7 @@ def set_budget():
 
     """SET NEW BUDGET OR ADD AMOUNT TO EXISTING BUDGET"""
     total_budget, current_budget = fetch_budget()  # Fetch the current budget values
+    prev_total_budget = 0
     print(f"Current Budget: INR {current_budget}")
 
     while True:
