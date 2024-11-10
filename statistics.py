@@ -185,7 +185,7 @@ def calculate_yearly_stats():
                     try:
                         if row[0] == '*':
                             initial_budget += float(row[1])
-                            budget_data[current_month][current_date] = 0
+                            budget_data[current_month][current_date] = 0.0
                         else:
                             budget_data[current_month][current_date] += float(row[2])
                     except ValueError:

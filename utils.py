@@ -202,11 +202,9 @@ def get_top_frequent_purchases_yearly():
 def display_frequent_purchases_yearly():
     """DISPLAY THE MOST FREQUENT PURCHASES FOR THE YEAR"""
     frequent_yearly = get_top_frequent_purchases_yearly()
-
-    if frequent_yearly is None:
+    if not frequent_yearly:
         print("No yearly data available for analysis.")
         return
-
     print("MOST FREQUENT PURCHASES FOR THE YEAR:\n\n")
     for i, category in enumerate(categories):
         if category not in frequent_yearly or not frequent_yearly[category]:
