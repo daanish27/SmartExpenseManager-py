@@ -155,7 +155,7 @@ def record_purchase(recent_purchase, today, t):
 
             writer.writerow([recent_purchase.name, recent_purchase.category, recent_purchase.amount, t])
 
-        print(f"\nEXPENSE RECORDED:\n\n\tNAME = {recent_purchase.name}\tCATEGORY = {recent_purchase.category}\tAMOUNT = {recent_purchase.name}\n\n\t\tDATE = {today}\t\tTIME = {t}")
+        print(f"\nEXPENSE RECORDED:\n\n\tNAME = {recent_purchase.name}\tCATEGORY = {recent_purchase.category}\tAMOUNT = {recent_purchase.amount}\n\n\t\tDATE = {today}\t\tTIME = {t}")
 
 
     else:

@@ -4,10 +4,10 @@ from datetime import datetime
 import csv
 import os
 
-print("\n--- SET/REFRESH BUDGET ---\n\n")
 def set_budget():
 
     """SET NEW BUDGET OR ADD AMOUNT TO EXISTING BUDGET"""
+    print("\n--- SET/REFRESH BUDGET ---\n\n")
     total_budget, current_budget = fetch_budget()  # Fetch the current budget values
     print(f"Current Budget: INR {current_budget}")
     prev_total_budget = 0
@@ -51,7 +51,7 @@ def set_budget():
     flag = 0 # Flag to check if today's entry exists
 
     # For subsequent budget entries in the month
-    if os.path.exists(budget_history):
+    if os.path.getsize(budget_history) > 0:
 
         with open(budget_history, 'r', newline='') as csvfile:
             reader = csv.reader(csvfile)
@@ -84,9 +84,8 @@ def set_budget():
             writer.writerow([today])
 
             if choice.lower() == 'r':
-                difference = add_amount - total_budget
                 add_amount - total_budget
-                writer.writerow(['*',total_budget, current_budget, difference])
+                writer.writerow(['*',total_budget, current_budget, 0])
 
             else:
                 writer.writerow(['*',total_budget, current_budget, add_amount])

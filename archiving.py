@@ -24,6 +24,10 @@ def archive_monthly_to_yearly():
         return
 
     try:
+        flag = 1
+        if os.path.getsize(yearly) == 0:
+            flag = 0 # Flag to initialize the first set budget of the year
+
         # Read from monthly records file and write to yearly records file
         with open(monthly, 'r') as monthly_file, open(yearly, 'a', newline='') as yearly_file:
             monthly_reader = csv.reader(monthly_file)
@@ -50,7 +54,15 @@ def archive_monthly_to_yearly():
 
             # Copy each row from the monthly file to the yearly file
             for row in monthly_reader:
-                yearly_writer.writerow(row)
+                if flag == 0 and len(row) >= 4: # This ensures that only the first entry of the first month is considered the initial entry later for calculation
+                    yearly_writer.writerow([row[1], row[2], row[3]])
+                    flag = 1
+
+                elif flag == 1 and len(row) >= 4:
+                    yearly_writer.writerow([row[1], row[2], row[3]])
+
+                else:
+                    yearly_writer.writerow(row)
 
         print(f"Monthly entries successfully archived for {month_id}.")
 

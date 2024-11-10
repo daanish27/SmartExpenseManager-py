@@ -193,8 +193,6 @@ def get_top_frequent_purchases_yearly():
             top_items = items.most_common(10)
             top_frequent_purchases[category] = [(name, amount, count) for (name, amount), count in top_items]
 
-        print(top_frequent_purchases)
-        print(list[enumerate(top_frequent_purchases)])
         return top_frequent_purchases
 
     except IOError:
@@ -204,13 +202,13 @@ def get_top_frequent_purchases_yearly():
 def display_frequent_purchases_yearly():
     """DISPLAY THE MOST FREQUENT PURCHASES FOR THE YEAR"""
     frequent_yearly = get_top_frequent_purchases_yearly()
-    if not frequent_yearly:
+
+    if frequent_yearly is None:
         print("No yearly data available for analysis.")
         return
 
     print("MOST FREQUENT PURCHASES FOR THE YEAR:\n\n")
     for i, category in enumerate(categories):
-
         if category not in frequent_yearly or not frequent_yearly[category]:
             continue
         print(f"\nCategory: {category}")

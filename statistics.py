@@ -185,7 +185,7 @@ def calculate_yearly_stats():
                     try:
                         if row[0] == '*':
                             initial_budget += float(row[1])
-                            budget_data[current_month][current_date] += float(row[3])
+                            budget_data[current_month][current_date] = 0
                         else:
                             budget_data[current_month][current_date] += float(row[2])
                     except ValueError:
@@ -262,7 +262,7 @@ def calculate_yearly_stats():
 
     print(f"\nTotal Spent for the Year: INR {yearly_total:.2f}")
     print(f"Total Income for the Year: INR {initial_budget:.2f}")
-    print(f"Net Spend for the Year: {yearly_net:.2f}\n")
+    print(f"Net Saved for the Year: {yearly_net:.2f}\n")
 
     display_frequent_purchases_yearly()
 
