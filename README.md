@@ -38,7 +38,8 @@ Follow the interactive prompts to set budgets, record expenses, view statistics,
 ## Project Structure
 
 - main.py: The entry point of the application. It handles the main menu and interaction flow.
-budget.py: Manages budget-related functions.
+
+- budget.py: Manages budget-related functions.
 
 - expenses.py: Records new expenses and updates existing ones.
 
@@ -53,58 +54,41 @@ budget.py: Manages budget-related functions.
 ## Modules Overview
 
 ### 1. main.py
-Purpose: Central script for user interaction and monthly checks.
-
-#### Key Functions:
+Central script for user interaction and monthly checks.
 
 main(): Runs the main expense tracker menu, checks for month updates, and calls functions based on user choice.
 
 ### 2. budget.py
-
-Purpose: Manages the budget, including setting, updating, and recording it.
-
-#### Key Functions:
+Manages the budget, including setting, updating, and recording it.
 
 set_budget(): Sets or modifies the budget based on user input.
 
 ### 3. expenses.py
-   
-Purpose: Records and manages expense entries.
-
-#### Key Functions:
+   Records and manages expense entries.
 
 get_expense(): Collects details of a new expense and records it.
 record_purchase(recent_purchase, today, t): Saves the purchase data with timestamps.
 
 ### 4. categories.py
-
-Purpose: Allows users to manage categories for expense classification.
-
-#### Key Functions:
+Allows users to manage categories for expense classification.
 
 check_categories(): Ensures categories exist before usage.
 modify_categories(): Menu for adding, modifying, or deleting categories.
 
 ### 5. statistics.py
-Purpose: Provides statistical summaries of expenses.
-
-#### Key Functions:
+Provides statistical summaries of expenses.
 
 calculate_monthly_stats(): Aggregates and displays monthly expense data.
 calculate_yearly_stats(): Aggregates and displays yearly expense data.
 
 ### 6. archiving.py
-Purpose: Archives monthly data to yearly records.
-
-#### Key Functions:
+Archives monthly data to yearly records.
 
 archive_monthly_to_yearly(): Moves monthly records to yearly archives.
 monthly_update(): Prepares for a new month by resetting monthly files.
 
 ### 7. utils.py
-Purpose: Utility functions for file handling and reusable components.
-
-#### Key Functions:
+Utility functions for file handling and reusable components.
 
 fetch_budget(): Retrieves the most recent budget values.
 display_frequent_purchases(): Displays the most frequent monthly purchases by category.
